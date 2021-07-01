@@ -41,8 +41,8 @@
     "./README.md",
     "index.d.ts"
   ],
-  "main": "dist/react-event-emitter.cjs.js",
-  "module": "dist/react-event-emitter.esm.js",
+  "main": "dist/react-env.cjs.js",
+  "module": "dist/react-env.esm.js",
   "source": "src/index.js",
   "types": "./index.d.ts",
   "husky": {
@@ -86,5 +86,8 @@
     "rollup-plugin-serve": "^1.0.1",
     "rollup-plugin-terser": "^7.0.0",
     "rollup-plugin-typescript2": "^0.27.0"
+  },
+  "dependencies": {
+    "jest-fetch-mock": "^3.0.3"
   }
 }

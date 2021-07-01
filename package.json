@@ -1,0 +1,90 @@
+{
+  "name": "@jcmagoo/react-env",
+  "version": "1.0.0",
+  "description": "Hook/Context based environment variables for React Single Page Applications (SPA)",
+  "keywords": [
+    "SPA",
+    "react",
+    "hook",
+    "context",
+    "environment variable"
+  ],
+  "author": {
+    "name": "John Clarke",
+    "email": "themagoo@hotmail.co.uk",
+    "url": "https://medium.com/@johnclarke73"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheMagoo73/react-env.git"
+  },
+  "homepage": "https://github.com/TheMagoo73/react-env",
+  "bugs": {
+    "url": "https://github.comTheMagoo73/react-env/issues"
+  },
+  "engines": {
+    "npm": ">7.0.0"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "npm run lint && rollup -c --environment NODE_ENV:production",
+    "lint": "eslint --ext=js ./src",
+    "prepack": "npm run build"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.11.0 || ^17"
+  },
+  "files": [
+    "src",
+    "dist",
+    "./README.md",
+    "index.d.ts"
+  ],
+  "main": "dist/react-event-emitter.cjs.js",
+  "module": "dist/react-event-emitter.esm.js",
+  "source": "src/index.js",
+  "types": "./index.d.ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js.jsx}": [
+      "eslint ./src --fix",
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "@rollup/plugin-replace": "^2.3.2",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/react-hooks": "^5.1.2",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "glob": "^7.1.6",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.7.2",
+    "rollup-plugin-analyzer": "^3.3.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-delete": "^1.2.0",
+    "rollup-plugin-livereload": "^1.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-terser": "^7.0.0",
+    "rollup-plugin-typescript2": "^0.27.0"
+  }
+}

@@ -1,0 +1,13 @@
+
+{
+    "plugins": [
+        "@babel/plugin-transform-runtime"
+    ],
+    "presets": [["@babel/env", {
+        "targets": {
+            "chrome": "89",
+            "ie": "11"
+        }
+    }], "@babel/preset-react"],
+    "comments": false
+}

@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/TheMagoo73/react-env/badge.svg?branch=main)](https://coveralls.io/github/TheMagoo73/react-env?branch=main)
 
 ## Contents
-- [Rational][#rational]
+- [Rational](#rational)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 

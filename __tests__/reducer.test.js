@@ -32,11 +32,12 @@ describe("reducer", () => {
         initialState,
         {type: 'ERRORED', payload: {error: 'Foo'}});
 
-    expect(newState).toEqual({
-      ...initialState,
-      state: 'ERRORED',
-      errorMessage: 'Foo'
-    });
+    expect(newState).toEqual(      
+      expect.objectContaining({
+        state: 'ERRORED',
+        errorMessage: 'Foo'
+      })
+    );
   });
 
 });

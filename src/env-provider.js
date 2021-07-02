@@ -7,7 +7,8 @@ import { reducer } from './reducer'
 
 const EnvProvider = ({
     children,
-    url
+    url,
+    defaultEnv
 }) => {
 
     const [state, dispatch] = useReducer(
@@ -24,7 +25,7 @@ const EnvProvider = ({
                 const env = await res.json()
                 dispatch({ type: 'LOADED', payload: { env, url } })
             } catch(e) {
-                dispatch({ type: 'ERRORED', payload: { error: e.message }})
+                dispatch({ type: 'ERRORED', payload: { error: e.message, defaultEnv }})
             }
         })();    
     }, [url]);
@@ -42,7 +43,8 @@ const EnvProvider = ({
 
 EnvProvider.propTypes = {
     children: PropTypes.any,
-    uri: PropTypes.string
+    url: PropTypes.string.isRequired,
+    defaultEnv: PropTypes.object
 }
 
 export default EnvProvider;

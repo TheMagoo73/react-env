@@ -8,8 +8,9 @@ import { useEnv, EnvProvider } from '../src/'
 import { act } from '@testing-library/react'
 
 const testURL = "http://foo.com/bar.json"
+const defaultEnv = {bar: 'foo'}
 const wrapper = ({children}) => (
-    <EnvProvider url={testURL}>{children}</EnvProvider>
+    <EnvProvider url={testURL} defaultEnv={defaultEnv}>{children}</EnvProvider>
 )
 
 describe('useEnv', () => {
@@ -48,5 +49,6 @@ describe('useEnv', () => {
 
         expect(result.current.state).toEqual('ERRORED')
         expect(result.current.errorMessage).toEqual('oops')
+        expect(result.current.env).toEqual(defaultEnv)
     })
 })

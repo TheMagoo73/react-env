@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useReducer, useRef } from 'react';
+import { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types'
 
 import EnvContext from './env-context'
@@ -28,7 +28,7 @@ const EnvProvider = ({
                 dispatch({ type: 'ERRORED', payload: { error: e.message, defaultEnv }})
             }
         })();    
-    }, [url]);
+    }, [url, defaultEnv]);
 
     return (
         <EnvContext.Provider

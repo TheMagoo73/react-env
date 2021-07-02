@@ -5,7 +5,7 @@ const useEnv = () => {
     const context = useContext(EnvContext);
 
     if(context === undefined) {
-        throw new Error("useEnv must be used within a EnvProvider");
+        throw new Error("useEnv must be used within an EnvProvider");
     }
 
     return context;

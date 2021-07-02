@@ -7,13 +7,16 @@ import { act } from "react-dom/test-utils";
 
 const testUrl = 'http://foo.com/bar.json'
 
+jest.mock('../src/reducer')
+import { reducer } from '../src/reducer'
+
 describe("provider", () => {
 
   beforeEach(() => {
     fetch.resetMocks()
   })
 
-  test("it proxies a url", async () => {
+  test("it loads environment from a url", async () => {
     fetch.mockResponse(JSON.stringify({foo: 'bar'}));
 
     await act(async () => {
@@ -25,6 +28,32 @@ describe("provider", () => {
     )
 
     expect(fetch).toHaveBeenLastCalledWith(testUrl)
+    expect(reducer).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        type: 'LOADED'
+      })
+    )
+  });
+
+  test("it handles errors getting the environment", async () => {
+    fetch.mockReject(new Error('Oops'))
+
+    await act(async () => {
+        render(
+        <EnvProvider
+          url={testUrl}
+        />
+      )}
+    )
+
+    expect(fetch).toHaveBeenLastCalledWith(testUrl)
+    expect(reducer).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        type: 'ERRORED'
+      })
+    )
   });
 
   test("it renders the children element", async () => {
